@@ -1,0 +1,97 @@
+
+<html>
+<head>
+<title>Grocery List App</title>
+<style>
+  body {
+font-family: Arial, sans-serif;
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+overflow-x: hidden;
+  }
+#container{
+display: flex;
+/* flex-direction: column; */
+justify-content: center;
+align-items: center;
+padding: 100px;
+/* border: 1px #0275D8 solid;  */
+  }
+  #details{
+width: 352px;
+ height: 248px; 
+border-radius: 8px;
+  background: linear-gradient(0deg, #D9D9D9 0%, #D9D9D9 100%);
+/* border-color: transparent; */
+  }
+  #grocery-list {
+    list-style-type: none;
+    padding: 0; 
+  }
+  #grocery-list li {
+    margin: 5px 0;
+  }
+  .button {
+    margin-left: 10px;
+  }
+  h2{
+    text-align: center;
+    letter-spacing: 3px;
+    color: darkblue;
+  }
+  #itemInput{
+/* text-align: center; */
+/* border: transparent; */
+border-radius: 3px;
+border-color: blue;
+  }
+  #sub{
+    text-align: center;
+    /* border: transparent; */
+  }
+button{
+    color: black;
+/* border-color: darkblue; */
+border-radius: 3px;
+border: transparent;
+    }
+</style>
+</head>
+     <body>
+        <div id="container">
+            <div id="details">
+<h2>Grocery Bud</h2>
+<div id="sub">
+<input type="text" id="itemInput" placeholder="e.g eggs...">
+<button onclick="addItem()">Submit</button>
+<ul id="grocery-list"></ul>
+<button onclick="clearAllItems()">Clear all Items</button> 
+<ul id="grocery-list"></ul>
+</div>
+</div>
+</div>
+<script>
+  // JavaScript code
+  function addItem() {
+    var item = document.getElementById('itemInput').value;
+    var ul = document.getElementById('grocery-list');
+    var li = document.createElement('li');
+    li.appendChild(document.createTextNode(item));
+    var removeButton = document.createElement('button');
+    removeButton.appendChild(document.createTextNode('delete'));
+    removeButton.className = 'button';
+    removeButton.onclick = function() {
+      ul.removeChild(li);
+    };
+    li.appendChild(removeButton);
+    ul.appendChild(li);
+}
+    function clearAllItems() {
+     var ul = document.getElementById('grocery-list');
+    ul.innerHTML = ''; 
+  }
+</script>
+
+</body>
+</html>
